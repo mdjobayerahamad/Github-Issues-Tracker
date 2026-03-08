@@ -57,12 +57,8 @@ Open
 <button id="closedTab" class="tab">
 Closed
 </button>
-
 </div>
-
-
 <!-- Issue Container -->
-
 <div
 id="issue-container"
 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -73,7 +69,27 @@ class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
 </div>
 
 </div>
+<!-- Spinner  -->
+<div id="spinner" class="text-center my-10 hidden">
+  <span class="loading loading-spinner loading-lg"></span>
+</div>
+<!-- Modal  -->
+<dialog id="issueModal" class="modal">
+  <div class="modal-box">
+    <h3 id="modalTitle" class="font-bold text-lg"></h3>
+    <p id="modalDescription" class="py-2"></p>
+    <p id="modalStatus"></p>
+    <p id="modalAuthor"></p>
+    <p id="modalPriority"></p>
+    <p id="modalLabel"></p>
 
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
 <script src="./deshbord.js"></script>
 
