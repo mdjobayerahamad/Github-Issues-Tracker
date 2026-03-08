@@ -1,35 +1,49 @@
 const container = document.getElementById("issue-container");
 
-const issues = [
-{
-title:"Login bug",
-description:"User cannot login",
-status:"open",
-author:"Admin"
-},
-{
-title:"Notification problem",
-description:"Notification not showing",
-status:"closed",
-author:"Github"
+async function loadIssues(){
+
+const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+
+const data = await res.json();
+
+displayIssues(data.data);
+
 }
-];
 
-function displayIssues(){
+function displayIssues(issues){
 
-container.innerHTML="";
+container.innerHTML = "";
 
 issues.forEach(issue => {
 
 const div = document.createElement("div");
 
-div.classList="bg-white p-4 rounded shadow";
+let borderColor = "border-t-4 border-green-500";
+
+if(issue.status === "closed"){
+borderColor = "border-t-4 border-purple-500";
+}
+
+div.className = `bg-white p-4 rounded shadow ${borderColor}`;
 
 div.innerHTML = `
-<h2 class="font-bold text-lg">${issue.title}</h2>
-<p class="text-gray-500">${issue.description}</p>
-<p>Status: ${issue.status}</p>
-<p>Author: ${issue.author}</p>
+
+<h2 class="font-bold text-lg mb-2">
+${issue.title}
+</h2>
+
+<p class="text-gray-500 mb-2">
+${issue.description}
+</p>
+
+<p><b>Status:</b> ${issue.status}</p>
+<p><b>Author:</b> ${issue.author}</p>
+<p><b>Priority:</b> ${issue.priority}</p>
+<p><b>Label:</b> ${issue.label}</p>
+<p class="text-sm text-gray-400">
+${issue.createdAt}
+</p>
+
 `;
 
 container.appendChild(div);
@@ -38,4 +52,4 @@ container.appendChild(div);
 
 }
 
-displayIssues();
+loadIssues();
