@@ -12,53 +12,26 @@
 </head>
 
 <body class="bg-gray-100">
-
 <!-- Navbar -->
 <div class="navbar bg-white shadow px-6">
-
 <div class="flex-1">
-<h1 class="text-xl font-bold">
-Github Issues Tracker
-</h1>
+<h1 class="text-xl font-bold">Github Issues Tracker</h1>
 </div>
 
 <div class="flex gap-2">
-<input
-id="searchInput"
-type="text"
-placeholder="Search issues"
-class="input input-bordered"
-/>
-
-<button id="searchBtn" class="btn btn-primary">
-Search
-</button>
+<input id="searchInput"type="text"placeholder="Search issues"class="input input-bordered"/>
+<button id="searchBtn" class="btn btn-primary">Search</button>
 </div>
-
 </div>
-
 
 <!-- Main Section -->
-
 <div class="max-w-7xl mx-auto mt-8 px-4">
-
 <!-- Tabs -->
-
 <div class="tabs tabs-boxed mb-6">
-
-<button id="allTab" class="tab tab-active">
-All
-</button>
-
-<button id="openTab" class="tab">
-Open
-</button>
-
-<button id="closedTab" class="tab">
-Closed
-</button>
+<button id="allTab" class="tab tab-active">All</button>
+<button id="openTab" class="tab">Open</button>
+<button id="closedTab" class="tab">Closed</button>
 </div>
-
 <!-- Spinner  -->
 <div id="spinner" class="text-center my-10 hidden">
   <span class="loading loading-spinner loading-lg"></span>
@@ -66,11 +39,9 @@ Closed
 <!-- Issue Container -->
 <div
 id="issue-container"
-class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
->
+class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
 <!-- Issue cards API থেকে এখানে আসবে -->
-
 </div>
 
 </div>
@@ -94,6 +65,5 @@ class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
 </dialog>
 
 <script src="./deshbord.js"></script>
-
 </body>
 </html>
