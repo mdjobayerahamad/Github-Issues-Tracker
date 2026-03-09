@@ -34,15 +34,15 @@ function displayIssues(issues) {
     div.innerHTML = `
       <h2 class="font-bold text-lg mb-2">${issue.title}</h2>
       <p class="text-gray-500 mb-2">
-        ${issue.description}
-      </p>
+${issue.description.slice(0,80)}...
+</p>
       <p><b>Status:</b> ${issue.status}</p>
       <p><b>Author:</b> ${issue.author}</p>
       <p><b>Priority:</b> ${issue.priority}</p>
       <p><b>Label:</b> ${issue.label}</p>
       <p class="text-sm text-gray-400">
-        ${issue.createdAt}
-      </p>
+${new Date(issue.createdAt).toLocaleDateString()}
+</p>
     `;
 
     // modal open
