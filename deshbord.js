@@ -14,11 +14,28 @@ function toggleSpinner(show) {
 // load issues from API
 async function loadIssues() {
   toggleSpinner(true);
+
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   const data = await res.json();
+
   allIssues = data.data;
+
   displayIssues(allIssues);
+  updateCounts(allIssues);
+
   toggleSpinner(false);
+}
+
+function updateCounts(issues){
+
+const total = issues.length;
+const open = issues.filter(issue => issue.status === "open").length;
+const closed = issues.filter(issue => issue.status === "closed").length;
+
+document.getElementById("totalIssues").innerText = total;
+document.getElementById("openCount").innerText = open;
+document.getElementById("closedCount").innerText = closed;
+
 }
 
 // display issues
