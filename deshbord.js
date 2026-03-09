@@ -159,3 +159,9 @@ displayIssues(data.data);
 toggleSpinner(false);
 
 }
+
+document.getElementById("searchInput").addEventListener("keyup", function(event){
+  if(event.key === "Enter"){
+    searchIssues();
+  }
+});
